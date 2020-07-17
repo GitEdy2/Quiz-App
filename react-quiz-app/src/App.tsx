@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import {fetchQuizQuestions} from './API';
 //Components
 import QuestionCard from './components/QuestionCard';
+
 //Types
 import { QuestionState, Difficulty} from './API';
+
+//Styles
+import { GlobalStyle, Wrapper } from './App.styles';
+
+
 
 
 export type AnswerObject = {
@@ -77,7 +83,9 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <>
+    <GlobalStyle />
+    <Wrapper>
       <h1>REACT QUIZ</h1>
       {
         gameOver || userAnswer.length === TOTAL_QUESTIONS ? (
@@ -123,9 +131,9 @@ const App = () => {
           </button>
         )
         : null 
-      }
-      
-    </div>
+      }    
+    </Wrapper>
+    </>
   );
 }
 
